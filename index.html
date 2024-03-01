@@ -1,0 +1,31 @@
+git<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Food Recipe Web App</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Food Recipe Web App</h1>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Enter ingredient....."> <!-- changed to searchInput -->
+                <button id="searchButton">Search</button>
+            </div>
+    </header>
+
+    <div id="mealList" class="meal-list"></div>
+    <div id="modal-container" class="modal-container">
+        <button id="recipeCloseBtn" class="close-button">&times;</button>
+        <div id="meal-details-content" class="meal-details-content">
+            <!--Content from the js file will come here-->
+        </div>
+    </div>
+    
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
