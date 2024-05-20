@@ -27,7 +27,7 @@ mealList.addEventListener('click', async (e) => {
 // Function for fetching meals by ingredient from the server
 async function searchMealsByIngredient(ingredient){
     try{
-        const response = await fetch(`/api/meals?ingredient=${ingredient}`);
+        const response = await fetch(`/Endpoints/meals?ingredient=${ingredient}`);
         const data = await response.json();
         return data;
     }catch(error){
@@ -38,7 +38,7 @@ async function searchMealsByIngredient(ingredient){
 // Function for fetching meal details by Id from the server
 async function getMealDetails(mealId){
     try{
-        const response = await fetch(`/api/mealDetails?mealId=${mealId}`);
+        const response = await fetch(`/Endpoints/mealDetails?mealId=${mealId}`);
         const data = await response.json();
         return data.meal;
     }catch(error){
