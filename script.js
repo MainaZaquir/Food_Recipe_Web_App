@@ -5,7 +5,6 @@ const modalContainer = document.getElementById('modal-container');
 const mealDetailsContent = document.getElementById('meal-details-content');
 const recipeCloseBtn = document.getElementById('recipeCloseBtn');
 
-// Event listeners
 searchButton.addEventListener('click', async () =>{
     const ingredient = searchInput.value.trim();
     if(ingredient){
@@ -25,10 +24,10 @@ mealList.addEventListener('click', async (e) => {
     }
 });
 
-// Function to fetch meals by ingredient from server
+// Function for fetching meals by ingredient from the server
 async function searchMealsByIngredient(ingredient){
     try{
-        const response = await fetch(`http://localhost:3000/meals?ingredient=${ingredient}`);
+        const response = await fetch(`/api/meals?ingredient=${ingredient}`);
         const data = await response.json();
         return data;
     }catch(error){
@@ -36,10 +35,10 @@ async function searchMealsByIngredient(ingredient){
     }
 }
 
-// Function to fetch meal details by Id from server
+// Function for fetching meal details by Id from the server
 async function getMealDetails(mealId){
     try{
-        const response = await fetch(`http://localhost:3000/mealDetails?mealId=${mealId}`);
+        const response = await fetch(`/api/mealDetails?mealId=${mealId}`);
         const data = await response.json();
         return data.meal;
     }catch(error){
@@ -47,7 +46,7 @@ async function getMealDetails(mealId){
     }
 }
 
-// Function to display meals in the list
+// Function for displaying meals in the list
 function displayMeals(meals){
     mealList.innerHTML = '';
     if(meals){
@@ -66,7 +65,7 @@ function displayMeals(meals){
     }
 }
 
-// Function to create and display meal details on popup
+// Function for creating and displaying the meal details immediately on popup
 function showMealDetailsPopup(meal) {
     mealDetailsContent.innerHTML = `
         <h2 class="recipe-title">${meal.strMeal}</h2>
@@ -87,7 +86,6 @@ function showMealDetailsPopup(meal) {
 }
 
 
-// Event listener for popup close button
 recipeCloseBtn.addEventListener('click', closeRecipeModal);
 
 function closeRecipeModal(){
@@ -108,7 +106,7 @@ async function performSearch(){
     }
 }
 
-// Perform a chicken search on page load
+// This will perform a chicken search once the page load
 window.addEventListener('load', () =>{
     searchInput.value = 'chicken';
     performSearch();
